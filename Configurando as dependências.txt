@@ -1,0 +1,63 @@
+Configurando o projeto com Hibernate e HSQLDB.
+
+Basta copiar a pasta lib para o seu projeto.
+Depois adicione o conteúdo da pasta ao classpth
+	selecione os arquivos da pasta lib
+ 	botão direito --> Build Path/add to Build Path
+
+Por fim crie a pasta META-INF dentro de src
+	dentro de META-INF cole o arquivo persistence.xml
+	Verifique
+		1) o nome da unidade de persistencia (pode ser o mesmo nome do projeto)
+		2) a lista de classe que precisam de persistência <class> </class>
+		3) Configurações do banco
+
+Caso deseje trabalhar com outros bancos basta adicionar as unidades de pseristencia
+
+<persistence-unit name="contas-mysql">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>br.com.caelum.financas.modelo.Conta</class>
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/contas" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="" />
+
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+		</properties>
+	</persistence-unit>
+	
+	<persistence-unit name="contas-hsqldb">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>br.com.caelum.financas.modelo.Conta</class>
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:contas" />
+			<property name="javax.persistence.jdbc.user" value="sa" />
+			<property name="javax.persistence.jdbc.password" value="" />
+
+			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+		</properties>
+	</persistence-unit>
+	
+	<persistence-unit name="contas-postgres">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>br.com.caelum.financas.modelo.Conta</class>
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/contas" />
+			<property name="javax.persistence.jdbc.user" value="rafaelpbaptista" />
+			<property name="javax.persistence.jdbc.password" value="" />
+
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+		</properties>
+	</persistence-unit>

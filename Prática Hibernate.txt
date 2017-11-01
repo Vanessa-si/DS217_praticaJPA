@@ -1,0 +1,80 @@
+Prática Hibernate
+Criar um novo projeto java 
+Configura as dependências do projeto veja o arquivo "configurando as dependências"
+Criar e configurar o banco de dados
+	veja o arquivo HSQLDB LEIA_ME
+Crie a classe conta utilize com as anotações vista em sala de aula ou no arquivo PDF persistencia.
+	atributos:
+		Integer id
+		String banco
+		String numero
+		String Titular
+
+//persitindo um objeto
+Crie uma classe TesteConta 
+	instancie um objeto do tipo Conta
+	configure um objeto do tipo Conta
+	Crie o EntityManagerFactory EMF
+	crie o EntityManager EM
+	crie um transaction
+	persista o objeto
+	encerre a transaction
+	não esqueça de fechar o EMF e o EM
+
+Verfique no banco se a tabela conta foi criada
+
+//Recuperando um objeto
+Altere a classe TestaConta 
+utilize o comando find do EM e passe Conta.class e o Id do objeto
+Veja o exemplo no arquivo persistencia.pdf da aula
+Print no console o os campos da classe obtida
+
+//Povoando a tebela
+Crie uma classe chamada populaTabela com um método main 
+Dentro desta classe crie 5 objetos Conta
+Configure os objetos preenchendo seus campos
+faça a persistência dos objetos 
+Execute a classe e verifique se os objetos foram criados
+
+//Alterando um objeto
+Use o comando find para recuperar um objeto conta da tabela
+altere os campos do objeto
+Veja o resultado no banco
+
+Agora tente alterar os campos do objeto antes de recuperá-lo com o find
+altere o id do objeto para um id que já existe no banco
+é possivel gravar as alterações? por que?
+Como resolver o problema?
+utilize o comando merge do EM.merge(conta) e veja o resultado no banco
+Qual a diferença entre as duas estratégias?
+
+//Usando JPQL
+Veja os exemplos dos slides 21 e 22 da aula sobre persitência
+Cria uma classe com método main chamada TestaJPQL
+Crie os EMF e EM
+Depois crie uma Query para recuperar os clientes com saldo maior que 200
+	para isso crie um novo campo em Conta do tipo BigDecimal chamado saldo
+	atualize as contas na tabela conta com algum valor de saldo positivo 
+		faça algumas alterações através da classe populaConta para realizer este processo de atualização nas contas instanciadas
+
+Voltando a classe TestaJPQL print na tela do console as contas obtidas.
+
+//Finalizando
+Agora salve seu projeto no guitHub usandoa interface do eclipse
+basta clicar na pasta do projeto --> team/share
+configure a pasta do repositorio
+	pode ser a propria pasta do projeto dentro do workspace
+Adiciones os arquivos no stage e commit
+Conclua realizando o push para a sua conta no github
+Compartilhe o repositório com a prática com diegobarrosflf
+
+
+
+
+
+
+
+
+
+
+

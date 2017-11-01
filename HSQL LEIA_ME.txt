@@ -1,0 +1,19 @@
+HSQL
+
+obs: É possivel usar o terminal do eclipse
+
+passo 1: Como criar um banco?
+
+	na pasta lib que contém o hsqldb.jar execute o comando via terminal
+		java -cp hsqldb.jar org.hsqldb.server.Server --database.0 file:mydb --dbname.0 xdb
+
+passo 2: Como acessar o banco?
+	
+	na pasta lib que contém o hsqldb.jar execute o comando via terminal
+		java -cp hsqldb.jar org.hsqldb.util.DatabaseManager
+	Irá abrir uma interface gráfica
+		no campo Type escolha a opção HSQL Database Engine Server		
+		no campo URL ao final digite o nome do banco
+			provavelmente xdb caso tenha usado o comando citado no passo 1
+			conecte
+
